@@ -139,7 +139,7 @@ namespace SlidingCompany
                 bool isWalking = (bool)typeof(PlayerControllerB).GetField("isWalking", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(playerController);
 
                 // Ensure our animations are all set correctly
-                playerController.playerBodyAnimator.SetBool("Jumping", isJumping);
+                playerController.playerBodyAnimator.SetBool("Jumping", isJumping && playerController.thisController.isGrounded);
                 playerController.playerBodyAnimator.SetBool("Walking", isWalking);
                 playerController.playerBodyAnimator.SetBool("Sprinting", playerController.isSprinting);
                 playerController.playerBodyAnimator.SetBool("crouching", playerController.isCrouching);
